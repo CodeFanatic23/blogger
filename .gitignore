@@ -11,6 +11,7 @@ __pycache__/
 env/
 Scripts/
 Include/
+media/
 build/
 develop-eggs/
 dist/
