@@ -15,7 +15,18 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from django.conf.urls.static import static
+from blogs.views import *
+from django.conf import settings
+from django.conf.urls import include
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^blogs/(?P<blogauthor>[0-9A-Za-z_\-]+)/(?P<category>[0-9A-Za-z_\-]+)/(?P<blogname>[0-9A-Za-z_\-]+)/$', blogView,name='blogview'),
+    url(r'^ckeditor/', include('ckeditor_uploader.urls')),
 ]
+
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

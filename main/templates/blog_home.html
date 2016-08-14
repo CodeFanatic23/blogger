@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block style %}
+
+{% endblock %}
+
+{% block content %}
+{% for p in posts %}
+<div class="container" style="background-color: #f7f7f7;">
+                            <ul>
+                               <li><strong>{{p.date|date:"d M Y"}}</strong></li>
+                               <li><h5>{{p.category}}</h5></li>
+                      
+                            </ul>
+                          </div>
+                          <div class="row">
+                                                    
+                            <div class="col-md-8 col-sm-12 col-xs-12">
+                              <h2>{{p.title}}</h2>
+                              <p>{{p.caption}}<strong><a href="{{p.category}}/{{p.title_slug}}">&nbsp;>>Read More
+                                <i class="fa fa-link"></i></a></strong>                              
+                              </p>
+                                 
+                              
+                            </div>
+                          </div>
+                      
+
+{% endfor %}
+
+
+<div class="pagination">
+    <span class="step-links">
+        {% if posts.has_previous %}
+            <a href="?page={{ posts.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ posts.number }} of {{ posts.paginator.num_pages }}.
+        </span>
+
+        {% if posts.has_next %}
+            <a href="?page={{ posts.next_page_number }}">next</a>
+        {% endif %}
+    </span>
+</div>
+{% endblock %}
+
+{% block js %}
+
+
+{% endblock %}
