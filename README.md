@@ -88,6 +88,14 @@ You Will Also need to set up your media and static properly
 
 Copy the blogs folder to your project.
 
+Add following urls to urls.py:
+
+    url(r'^blogs/$', blogHome,name='blogHome'),
+    url(r'^blogs/(?P<blogauthor>[0-9A-Za-z_\-]+)/$', authorHome,name='authorHome'),
+    url(r'^blogs/(?P<blogauthor>[0-9A-Za-z_\-]+)/(?P<category>[0-9A-Za-z_\-]+)/$', category,name='category'),
+    url(r'^blogs/(?P<blogauthor>[0-9A-Za-z_\-]+)/(?P<category>[0-9A-Za-z_\-]+)/(?P<blogname>[0-9A-Za-z_\-]+)/$', blogView,name='blogview'),
+    url(r'^ckeditor/', include('ckeditor_uploader.urls')),
+
 Run:
 
 ``python manage.py makemigrations``
