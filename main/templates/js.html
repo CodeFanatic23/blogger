@@ -1,0 +1,21 @@
+<!-- jQuery Library  -->
+    <script src="/static/js/jquery.js"></script>    
+    <!-- Bootstrap default js -->
+    <script src="/static/js/bootstrap.min.js"></script>
+    <!-- slick slider -->
+    <script src="/static/js/slick.min.js"></script>    
+    <script type="text/javascript" src="/static/js/modernizr.custom.79639.js"></script>      
+    <!-- Photo Swipe Gallery Slider -->
+
+    <!-- Custom JS -->
+    <script src="/static/js/custom.js"></script>
+    <script>
+        var $window = $(window),
+       $stickyEl = $('#fixedElement'),
+       elTop = $stickyEl.offset().top;
+
+   $window.scroll(function() {
+        $stickyEl.toggleClass('sticky', $window.scrollTop() > elTop);
+    });
+    </script>
+

@@ -12,6 +12,7 @@ env/
 Scripts/
 Include/
 media/
+migrations/
 build/
 develop-eggs/
 dist/

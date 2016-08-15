@@ -22,6 +22,9 @@ from django.conf.urls import include
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^blogs/$', blogHome,name='blogHome'),
+    url(r'^blogs/(?P<blogauthor>[0-9A-Za-z_\-]+)/$', authorHome,name='authorHome'),
+    url(r'^blogs/(?P<blogauthor>[0-9A-Za-z_\-]+)/(?P<category>[0-9A-Za-z_\-]+)/$', category,name='category'),
     url(r'^blogs/(?P<blogauthor>[0-9A-Za-z_\-]+)/(?P<category>[0-9A-Za-z_\-]+)/(?P<blogname>[0-9A-Za-z_\-]+)/$', blogView,name='blogview'),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
 ]
