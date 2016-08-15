@@ -1,0 +1,8 @@
+Django==1.10
+django-ckeditor==5.0.3
+django-disqus==0.5
+mock==2.0.0
+pbr==1.10.0
+six==1.10.0
+Pillow==3.3.0
+django-crispy-forms==1.6.0
