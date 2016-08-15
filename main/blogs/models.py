@@ -22,7 +22,6 @@ class Category(models.Model):
 class Post(models.Model):
 	title  = models.CharField(max_length=100,blank=False,null=True)
 	caption = models.CharField(max_length=300,blank=False,null=True)
-	#category = models.CharField(max_length=20,null=True,blank=True,default='Others')
 	category = models.ForeignKey(Category)
 	date = models.DateTimeField(auto_now_add=False,auto_now=True)
 	content = RichTextUploadingField(config_name='default')

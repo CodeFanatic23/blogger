@@ -1,0 +1,43 @@
+{% extends "blog_base.html" %}
+
+{% block content %}
+<div class="container">
+<div class="row">
+<div class="container" style="margin-left:10%;text-transform:capitalize;">
+                <h2 style="text-transform: capitalize;">{{contenttitle}}</h2>
+                <h3>{{content.caption}}</h3>
+                <p>{{content.date}}</p>
+                <div class="line"></div>
+              </div>
+              <div class="container" style="margin-left:10%;">              
+              {{content.content|safe}}
+              </div>
+
+<div class="clearfix">
+</div>
+  <div class="container" style="max-width:80%;margin-left:10%;margin-right:10%;">
+  	<div>
+				<div id="disqus_thread"></div>
+<script>
+       
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;
+        this.page.identifier = PAGE_IDENTIFIER; 
+    };
+    
+    (function() {
+        var d = document, s = d.createElement('script');
+        
+        s.src = '//dopybitsgoa.disqus.com/embed.js';
+        
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+<script id="dsq-count-scr" src="//dopybitsgoa.disqus.com/count.js" async></script>
+			</div>
+  </div>
+  </div>
+
+{% endblock %}

@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from django.core.paginator import Paginator
 from django.core.paginator import EmptyPage
 from django.core.paginator import PageNotAnInteger
+from django.conf import settings
 
 
 # Create your views here.
@@ -12,13 +13,14 @@ def blogView(request,blogauthor,category,blogname):
 	print(content.blogauthor)
 	context = {
 	'data':content,
+	'disqus_shortname':settings.DISQUS_WEBSITE_SHORTNAME,
 	}
 
 	return render(request,"post.html",context)
 
 def blogHome(request):
+	#Do stuff
 	return HttpResponse("<h1>YOLO!</h1>")
-	#return render(request,"post.html",context)
 
 def authorHome(request,blogauthor):
 	content_featured = Post.objects.filter(blogauthor_slug=blogauthor,featured=True).order_by('-date')
