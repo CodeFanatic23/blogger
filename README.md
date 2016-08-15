@@ -5,6 +5,10 @@ A blogging application built in django using ckeditor and comments using disqus.
 
 Download or Clone the repository
 
+Install dependencies using:
+
+``pip install -r requirements.txt``
+
 Add the following to your settings.py:
   
 ``CKEDITOR_UPLOAD_PATH = "ckeditor/"``
@@ -82,14 +86,22 @@ Add the following to ``INSTALLED APPS``:
     
     'crispy_forms',
     
-    'blogs',``
+    'blogs',
+    
     
 You Will Also need to set up your media and static properly
+
+Copy All the templates from templates folder to your templates. Alternatively you can also add it to ``TEMPLATES:{'DIRS:[],}'``
 
 Copy the blogs folder to your project.
 
 Add following urls to urls.py:
 
+    from django.conf.urls.static import static
+    from blogs.views import *
+    from django.conf import settings
+    from django.conf.urls import include
+    
     url(r'^blogs/$', blogHome,name='blogHome'),
     url(r'^blogs/(?P<blogauthor>[0-9A-Za-z_\-]+)/$', authorHome,name='authorHome'),
     url(r'^blogs/(?P<blogauthor>[0-9A-Za-z_\-]+)/(?P<category>[0-9A-Za-z_\-]+)/$', category,name='category'),
